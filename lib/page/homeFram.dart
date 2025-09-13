@@ -17,21 +17,21 @@ class _HomePageState extends State<HomePage> {
       "price": "100",
       "status": "มีอยู่",
       "round": "1",
-      "result": "ถูกรางวัลเลขท้าย 2 ตัว"
+      "result": "ถูกรางวัลเลขท้าย 2 ตัว",
     },
     {
       "number": "987654",
       "price": "100",
       "status": "ไม่มี",
       "round": "2",
-      "result": "ไม่ถูกรางวัล"
+      "result": "ไม่ถูกรางวัล",
     },
     {
       "number": "555555",
       "price": "50",
       "status": "มีอยู่",
       "round": "3",
-      "result": "ถูกรางวัลที่ 5"
+      "result": "ถูกรางวัลที่ 5",
     },
   ];
 
@@ -53,78 +53,96 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const SizedBox(height: 60),
-                  const Text(
-                    'LOTTO',
-                    style: TextStyle(
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'LOTTO',
+                      style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w700,
-                        color: Colors.black),
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      side: const BorderSide(color: Colors.black, width: 1),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
-                      minimumSize: const Size(100, 40),
+                        color: Colors.black,
+                      ),
                     ),
-                    onPressed: () {},
-                    child: const Text('ตรวจรางวัล'),
-                  ),
-                ],
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        // side: const BorderSide(color: Colors.black, width: 1),
+                        // shape: RoundedRectangleBorder(
+                        //     borderRadius: BorderRadius.circular(12)),
+                        // minimumSize: const Size(100, 40),
+                        backgroundColor: Colors.orange[200],
+                        foregroundColor: Colors.black,
+                      ),
+                      onPressed: () {},
+                      child: const Text('ตรวจรางวัล'),
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 10),
-              const Divider(
-                thickness: 2,
-                color: Color.fromARGB(158, 158, 158, 100),
-                height: 16,
-              ),
-              const SizedBox(height: 20),
 
-              // สร้าง Container ของหวยแบบ dynamic
-              ...lotto.map((item) => Container(
-                    margin: const EdgeInsets.symmetric(vertical: 8),
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Colors.black, width: 2),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('เลขหวย: ${item["number"]}',
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600)),
-                        const SizedBox(height: 4),
-                        Text('ราคา: ${item["price"]}',
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600)),
-                        const SizedBox(height: 4),
-                        Text('สถานะ: ${item["status"]}',
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600)),
-                        const SizedBox(height: 4),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('งวดที่: ${item["round"]}',
-                                style: const TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w600)),
-                            FilledButton(
-                              onPressed: buyData,
-                              style: FilledButton.styleFrom(
-                                  backgroundColor: Colors.lightGreen),
-                              child: const Text('ซื้อ'),
-                            ),
-                          ],
+              ...lotto.map(
+                (item) => Container(
+                  margin: const EdgeInsets.symmetric(vertical: 8),
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 232, 232, 232),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'เลขหวย: ${item["number"]}',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
                         ),
-                      ],
-                    ),
-                  )),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'ราคา: ${item["price"]}',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'สถานะ: ${item["status"]}',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'งวดที่: ${item["round"]}',
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          FilledButton(
+                            onPressed: buyData,
+
+                            style: FilledButton.styleFrom(
+                              backgroundColor: Colors.lightGreenAccent,
+                              foregroundColor: Colors.black,
+                            ),
+                            child: const Text('ซื้อ'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -149,7 +167,8 @@ class _HomePageState extends State<HomePage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => const CheckRewardHistoryPage()),
+                builder: (context) => const CheckRewardHistoryPage(),
+              ),
             );
           } else if (index == 3) {
             Navigator.push(
@@ -160,7 +179,10 @@ class _HomePageState extends State<HomePage> {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.receipt_long), label: 'สินค้า'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.receipt_long),
+            label: 'สินค้า',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.history), label: 'ประวัติ'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
