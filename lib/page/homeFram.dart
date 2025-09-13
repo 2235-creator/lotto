@@ -49,83 +49,86 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const SizedBox(height: 60),
-                  const Text(
-                    'LOTTO',
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black),
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      side: const BorderSide(color: Colors.black, width: 1),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
-                      minimumSize: const Size(100, 40),
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 60),
+                    const Text(
+                      'LOTTO',
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.black),
                     ),
-                    onPressed: () {},
-                    child: const Text('ตรวจรางวัล'),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              const Divider(
-                thickness: 2,
-                color: Color.fromARGB(158, 158, 158, 100),
-                height: 16,
-              ),
-              const SizedBox(height: 20),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        side: const BorderSide(color: Colors.black, width: 1),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        minimumSize: const Size(100, 40),
+                      ),
+                      onPressed: () {},
+                      child: const Text('ตรวจรางวัล'),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                const Divider(
+                  thickness: 2,
+                  color: Color.fromARGB(158, 158, 158, 100),
+                  height: 16,
+                ),
+                const SizedBox(height: 20),
 
-              // สร้าง Container ของหวยแบบ dynamic
-              ...lotto.map((item) => Container(
-                    margin: const EdgeInsets.symmetric(vertical: 8),
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Colors.black, width: 2),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('เลขหวย: ${item["number"]}',
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600)),
-                        const SizedBox(height: 4),
-                        Text('ราคา: ${item["price"]}',
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600)),
-                        const SizedBox(height: 4),
-                        Text('สถานะ: ${item["status"]}',
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600)),
-                        const SizedBox(height: 4),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('งวดที่: ${item["round"]}',
-                                style: const TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w600)),
-                            FilledButton(
-                              onPressed: buyData,
-                              style: FilledButton.styleFrom(
-                                  backgroundColor: Colors.lightGreen),
-                              child: const Text('ซื้อ'),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  )),
-            ],
+                // สร้าง Container ของหวยแบบ dynamic
+                ...lotto.map((item) => Container(
+                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.black, width: 2),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('เลขหวย: ${item["number"]}',
+                              style: const TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w600)),
+                          const SizedBox(height: 4),
+                          Text('ราคา: ${item["price"]}',
+                              style: const TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w600)),
+                          const SizedBox(height: 4),
+                          Text('สถานะ: ${item["status"]}',
+                              style: const TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w600)),
+                          const SizedBox(height: 4),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('งวดที่: ${item["round"]}',
+                                  style: const TextStyle(
+                                      fontSize: 18, fontWeight: FontWeight.w600)),
+                              FilledButton(
+                                onPressed: buyData,
+                                style: FilledButton.styleFrom(
+                                    backgroundColor: Colors.lightGreen),
+                                child: const Text('ซื้อ'),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )),
+              ],
+            ),
           ),
         ),
       ),

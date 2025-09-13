@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lotto/page/checkReward.dart';
+import 'package:lotto/page/homeFram.dart';
+import 'package:lotto/page/lottoHistory.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -87,27 +90,36 @@ class _ProfilePageState extends State<ProfilePage> {
         backgroundColor: Colors.white,
         selectedItemColor: Colors.purple[300],
         unselectedItemColor: Colors.grey[600],
-        currentIndex: 3,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.receipt_long),
-            label: 'สินค้า',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'ประวัติ',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
         onTap: (index) {
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const HomePage()),
+            );
+          } else if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CheckRewardPage()),
+            );
+          } else if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const CheckRewardHistoryPage()),
+            );
+          } else if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProfilePage()),
+            );
+          }
         },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.receipt_long), label: 'สินค้า'),
+          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'ประวัติ'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        ],
       ),
     );
   }
