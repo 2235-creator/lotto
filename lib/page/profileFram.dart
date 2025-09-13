@@ -13,15 +13,15 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Image.network(
-          'https://raw.githubusercontent.com/FarmHouse2263/Lotto_Project/refs/heads/main/Logo_Lotto.png',
-          height: 40,
+          'https://raw.githubusercontent.com/FarmHouse2263/lotto/refs/heads/main/image%202.png',
+          height: 30,
           width: 80,
           fit: BoxFit.contain,
         ),

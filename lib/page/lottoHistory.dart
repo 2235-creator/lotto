@@ -19,8 +19,13 @@ class _CheckRewardHistoryPageState extends State<CheckRewardHistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ประวัติการตรวจรางวัล"),
-        backgroundColor: Colors.green,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        title: Image.network(
+          'https://raw.githubusercontent.com/FarmHouse2263/lotto/refs/heads/main/image%202.png',
+          height: 30,
+          width: 80,
+          fit: BoxFit.cover,
+        ),
       ),
       body: ListView.builder(
         itemCount: history.length,
@@ -29,7 +34,7 @@ class _CheckRewardHistoryPageState extends State<CheckRewardHistoryPage> {
           return Card(
             margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
             child: ListTile(
-              leading: const Icon(Icons.history, color: Colors.green),
+              leading: const Icon(Icons.history),
               title: Text("งวดวันที่: ${item['date']}"),
               subtitle: Text("หมายเลข: ${item['number']}\nผล: ${item['result']}"),
             ),

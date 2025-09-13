@@ -26,7 +26,7 @@ class _LoginPagesState extends State<LoginPages> {
               children: [
                 const SizedBox(height: 60),
                 Image.network(
-                  'https://raw.githubusercontent.com/FarmHouse2263/Lotto_Project/refs/heads/main/Logo_Lotto.png',
+                  'https://raw.githubusercontent.com/FarmHouse2263/lotto/refs/heads/main/image%202.png',
                   height: 180,
                   width: 180,
                   fit: BoxFit.cover,

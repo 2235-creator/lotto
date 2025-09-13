@@ -28,9 +28,13 @@ class _CheckRewardPageState extends State<CheckRewardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ตรวจรางวัล"),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        title: Image.network(
+          'https://raw.githubusercontent.com/FarmHouse2263/lotto/refs/heads/main/image%202.png',
+          height: 30,
+          width: 80,
+          fit: BoxFit.cover,
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
