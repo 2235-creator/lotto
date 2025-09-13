@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lotto/page/profileAdmin.dart';
+import 'package:lotto/page/profileFram.dart';
+import 'package:lotto/page/checkReward.dart';
+import 'package:lotto/page/lottoHistory.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -410,6 +412,16 @@ class _HomePageState extends State<HomePage> {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          } else if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CheckRewardPage()),
+            );
+          } else if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CheckRewardHistoryPage()),
             );
           } else if (index == 3) {
             Navigator.push(
